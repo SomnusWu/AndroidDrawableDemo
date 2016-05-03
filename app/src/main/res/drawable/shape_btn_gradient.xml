@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 绘制渐变背景 -->
+
+    <corners android:radius="10dp"/>
+
+    <!-- gradient绘制渐变：angle逆时针开始，0从左向右渐变，90从下向上渐变，180从右向左渐变，270从上向下渐变 -->
+
+    <gradient
+        android:angle="270"
+        android:endColor="#3CB371"
+        android:startColor="#00FF7F" />
+
+</shape>

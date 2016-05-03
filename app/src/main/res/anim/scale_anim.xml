@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scale xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="2000"
+    android:fromXScale="50%"
+    android:fromYScale="1"
+    android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+    android:repeatCount="0"
+    android:toXScale="100%"
+    android:toYScale="2">
+
+    <!--android:fromXScale=""设置X缩放之前值，取值float/dimension/fraction；
+        android:toXScale=""设置X缩放之后值，取值float/dimension/fraction；同理，
+        android:fromYScale=""设置Y缩放之前值，取值float/dimension/fraction；
+        android:toYScale=""设置Y缩放之后值，取值float/dimension/fraction-->
+
+</scale>

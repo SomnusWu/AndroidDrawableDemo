@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- 圆角矩形：rectangle绘制矩形，oval绘制椭圆，line绘制直线，ring绘制波浪线-->
+
+    <!-- corners绘制圆角度数 -->
+    <corners android:radius="10dp"/>
+
+    <!--solid填充颜色  -->
+    <solid android:color="#DC143C"/>
+
+</shape>

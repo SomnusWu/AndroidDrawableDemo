@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 设置TextView文字按下效果：创建res/color，放置当前文件 -->
+    <!--TextView默认android:clickable="false"，true后selector属性才生效 -->
+
+    <item android:state_pressed="true" android:color="#FF1493"/>
+    <item android:state_pressed="false" android:color="#C71585"/>
+
+</selector>

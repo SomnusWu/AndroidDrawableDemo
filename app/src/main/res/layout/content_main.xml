@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.somnus.drawable.androiddrawabledemo.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello World!" />
+
+            <Button
+                android:id="@+id/btn_shape"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_btn_01"
+                android:text="shape标签" />
+
+            <Button
+                android:id="@+id/btn_shape_gradient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_btn_gradient"
+                android:text="shape gradient 渐变" />
+
+            <Button
+                android:id="@+id/btn_shape_gradient_scale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_btn_gradient"
+                android:text="shape gradient 渐变 缩放" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text="点击文字变颜色"
+                android:textColor="@color/selector_btn_text" />
+
+            <Button
+                android:id="@+id/btn_layer_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="@drawable/layer_list_btn"
+                android:padding="10dp"
+                android:text="layer-list标签" />
+
+            <Button
+                android:id="@+id/btn_layer_anim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="@drawable/layer_list_btn"
+                android:padding="10dp"
+                android:text="layer-list标签 点击 出现显示过渡动画" />
+
+            <Button
+                android:id="@+id/btn_translate_anim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="@drawable/layer_list_btn"
+                android:padding="10dp"
+                android:text="layer-list标签 移动动画" />
+
+            <Button
+                android:id="@+id/btn_scale_anim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="@drawable/layer_list_btn"
+                android:padding="10dp"
+                android:text="layer-list标签 旋转动画" />
+
+            <Button
+                android:id="@+id/btn_set_anim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="@drawable/layer_list_btn"
+                android:padding="10dp"
+                android:text="layer-list标签 set " />
+
+            <Button
+                android:id="@+id/btn_selector_shape"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="@drawable/selector_item_draw"
+                android:textColor="@color/selector_btn_text"
+                android:padding="10dp"
+                android:text="layer-list标签selector  " />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
