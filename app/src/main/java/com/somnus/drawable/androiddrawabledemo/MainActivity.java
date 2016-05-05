@@ -1,5 +1,9 @@
 package com.somnus.drawable.androiddrawabledemo;
 
+import android.animation.Animator;
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -33,6 +37,19 @@ public class MainActivity extends AppCompatActivity {
     Button btnScaleAnim;
     @Bind(R.id.btn_set_anim)
     Button btnSetAnim;
+    @Bind(R.id.btn_animator)
+    Button btn_animator;
+    @Bind(R.id.btn_animator_rotation)
+    Button btn_animator_rotation;
+    @Bind(R.id.btn_animator_translationx)
+    Button btn_animator_translationx;
+    @Bind(R.id.btn_animator_scaley)
+    Button btn_animator_scaley;
+    @Bind(R.id.btn_animatorset)
+    Button btn_animatorset;
+    @Bind(R.id.btn_animator_xml)
+    Button btn_animator_xml;
+    FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,7 +94,18 @@ public class MainActivity extends AppCompatActivity {
     /**
      * alpha标签
      */
-    @OnClick({R.id.btn_layer_anim, R.id.btn_shape_gradient_scale, R.id.btn_translate_anim, R.id.btn_scale_anim,R.id.btn_set_anim})
+    @OnClick({R.id.btn_layer_anim,
+            R.id.btn_shape_gradient_scale,
+            R.id.btn_translate_anim,
+            R.id.btn_scale_anim,
+            R.id.btn_set_anim,
+            R.id.btn_animator,
+            R.id.btn_animator_rotation,
+            R.id.btn_animator_translationx,
+            R.id.btn_animator_scaley,
+            R.id.btn_animatorset,
+            R.id.btn_animator_xml
+    })
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_layer_anim:
@@ -94,6 +122,24 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_set_anim:
                 startSetAnim();
+                break;
+            case R.id.btn_animator:
+                statrAlphaObjectAnim();
+                break;
+            case R.id.btn_animator_rotation:
+                statrRotationObjectAnim();
+                break;
+            case R.id.btn_animator_translationx:
+                statrTranslationXObjectAnim();
+                break;
+            case R.id.btn_animator_scaley:
+                statrScaleYObjectAnim();
+                break;
+            case R.id.btn_animatorset:
+                statrAnimatorSet();
+                break;
+            case R.id.btn_animator_xml:
+                startAnimatorSetXml();
                 break;
             default:
                 break;
@@ -141,5 +187,56 @@ public class MainActivity extends AppCompatActivity {
     private void startSetAnim() {
         Animation anim = AnimationUtils.loadAnimation(this, R.anim.set_anim);
         btnSetAnim.startAnimation(anim);
+    }
+
+    /****
+     * ------------------------------ ObjectAnimator ----------------------------------------
+     */
+    private void statrAlphaObjectAnim() {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(btn_animator, "alpha", 1f, 0f, 1f);
+        animator.setDuration(5000);
+        animator.start();
+    }
+
+    private void statrRotationObjectAnim() {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(btn_animator_rotation, "rotation", 0f, 360f);
+        animator.setDuration(5000);
+        animator.start();
+    }
+
+    private void statrTranslationXObjectAnim() {
+        float curTranslationX = btn_animator_translationx.getTranslationX();
+        ObjectAnimator animator = ObjectAnimator.ofFloat(btn_animator_translationx, "translationX", curTranslationX, -500f, curTranslationX);
+        animator.setDuration(5000);
+        animator.start();
+    }
+
+    private void statrScaleYObjectAnim() {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(btn_animator_scaley, "scaleY", 1f, 3f, 1f);
+        animator.setDuration(5000);
+        animator.start();
+    }
+
+    private void statrAnimatorSet() {
+        ObjectAnimator moveIn = ObjectAnimator.ofFloat(btn_animatorset, "translationX", -500f, 0f);
+        ObjectAnimator rotate = ObjectAnimator.ofFloat(btn_animatorset, "rotation", 0f, 360f);
+        ObjectAnimator fadeInOut = ObjectAnimator.ofFloat(btn_animatorset, "alpha", 1f, 0f, 1f);
+        AnimatorSet animSet = new AnimatorSet();
+        animSet.play(rotate).with(fadeInOut).after(moveIn);
+        animSet.setDuration(5000);
+        animSet.start();
+    }
+
+    private void startAnimatorSetXml() {
+        /**
+         * 如果想要使用XML来编写动画，首先要在res目录下面新建一个animator文件夹，所有属性动画的XML文件都应该存放在这个文件夹当中。然后在XML文件中我们一共可以使用如下三种标签：
+         <animator>  对应代码中的ValueAnimator
+         <objectAnimator>  对应代码中的ObjectAnimator
+         <set>  对应代码中的AnimatorSet
+         */
+        int animatorxml = R.animator.anim_set_objectanimator;
+        Animator animator = AnimatorInflater.loadAnimator(this, animatorxml);
+        animator.setTarget(btn_animator_xml);
+        animator.start();
     }
 }
