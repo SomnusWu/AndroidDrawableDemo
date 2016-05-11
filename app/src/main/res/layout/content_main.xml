@@ -24,6 +24,12 @@
                 android:text="Hello World!" />
 
             <Button
+                android:id="@+id/btn_selector_shape_enabled"
+                style="@style/button_style"
+                android:background="@drawable/selector_item_draw_enabled"
+                android:text="layer-list标签selector enabled "/>
+
+            <Button
                 android:id="@+id/btn_shape"
                 style="@style/button_style"
                 android:background="@drawable/shape_btn_01"
@@ -88,6 +94,8 @@
                 android:background="@drawable/selector_item_draw"
                 android:text="layer-list标签selector  "
                 android:textColor="@color/selector_btn_text" />
+
+
 
             <TextView
                 android:layout_width="wrap_content"
